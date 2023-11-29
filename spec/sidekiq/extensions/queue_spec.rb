@@ -32,16 +32,16 @@ RSpec.describe Sidekiq::Queue do
         expect(queue.acquire).to be
       end
 
-      it 'should be pausable' do
-        queue.pause
-        expect(queue.acquire).not_to be
-      end
+      # it 'should be pausable' do
+      #   queue.pause
+      #   expect(queue.acquire).not_to be
+      # end
 
-      it 'should be continuable' do
-        queue.pause
-        queue.unpause
-        expect(queue.acquire).to be
-      end
+      # it 'should be continuable' do
+      #   queue.pause
+      #   queue.unpause
+      #   expect(queue.acquire).to be
+      # end
 
       it 'should be limitable' do
         queue.limit = 1
@@ -69,13 +69,13 @@ RSpec.describe Sidekiq::Queue do
         expect(queue.probed).to eq 0
       end
 
-      it 'should tell if paused' do
-        expect(queue).not_to be_paused
-        queue.pause
-        expect(queue).to be_paused
-        queue.unpause
-        expect(queue).not_to be_paused
-      end
+      # it 'should tell if paused' do
+      #   expect(queue).not_to be_paused
+      #   queue.pause
+      #   expect(queue).to be_paused
+      #   queue.unpause
+      #   expect(queue).not_to be_paused
+      # end
 
       it 'should tell if blocking' do
         expect(queue).not_to be_blocking

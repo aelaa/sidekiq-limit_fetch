@@ -36,30 +36,30 @@ RSpec.describe 'semaphore' do
     expect(subject.probed).to eq 3
   end
 
-  it 'should pause tasks' do
-    3.times { subject.acquire }
-    subject.pause
-    2.times { subject.acquire }
-    expect(subject.probed).to eq 3
-    2.times { subject.release }
-    expect(subject.probed).to eq 1
-  end
+  # it 'should pause tasks' do
+  #   3.times { subject.acquire }
+  #   subject.pause
+  #   2.times { subject.acquire }
+  #   expect(subject.probed).to eq 3
+  #   2.times { subject.release }
+  #   expect(subject.probed).to eq 1
+  # end
 
-  it 'should unpause tasks' do
-    subject.pause
-    3.times { subject.acquire }
-    subject.unpause
-    2.times { subject.acquire }
-    expect(subject.probed).to eq 2
-  end
+  # it 'should unpause tasks' do
+  #   subject.pause
+  #   3.times { subject.acquire }
+  #   subject.unpause
+  #   2.times { subject.acquire }
+  #   expect(subject.probed).to eq 2
+  # end
 
-  it 'should pause tasks for a limited time' do
-    3.times { subject.acquire }
-    subject.pause_for_ms 50
-    2.times { subject.acquire }
-    expect(subject.probed).to eq 3
-    sleep(100.0 / 1000)
-    2.times { subject.acquire }
-    expect(subject.probed).to eq 5
-  end
+  # it 'should pause tasks for a limited time' do
+  #   3.times { subject.acquire }
+  #   subject.pause_for_ms 50
+  #   2.times { subject.acquire }
+  #   expect(subject.probed).to eq 3
+  #   sleep(100.0 / 1000)
+  #   2.times { subject.acquire }
+  #   expect(subject.probed).to eq 5
+  # end
 end

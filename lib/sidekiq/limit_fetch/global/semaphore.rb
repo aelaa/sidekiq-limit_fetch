@@ -80,21 +80,21 @@ module Sidekiq
           redis { |it| it.lrange "#{PREFIX}:probed:#{@name}", 0, -1 }
         end
 
-        def pause
-          redis { |it| it.set "#{PREFIX}:pause:#{@name}", '1' }
-        end
+        # def pause
+        #   redis { |it| it.set "#{PREFIX}:pause:#{@name}", '1' }
+        # end
 
-        def pause_for_ms(milliseconds)
-          redis { |it| it.psetex "#{PREFIX}:pause:#{@name}", milliseconds, 1 }
-        end
+        # def pause_for_ms(milliseconds)
+        #   redis { |it| it.psetex "#{PREFIX}:pause:#{@name}", milliseconds, 1 }
+        # end
 
-        def unpause
-          redis { |it| it.del "#{PREFIX}:pause:#{@name}" }
-        end
+        # def unpause
+        #   redis { |it| it.del "#{PREFIX}:pause:#{@name}" }
+        # end
 
-        def paused?
-          redis { |it| it.get "#{PREFIX}:pause:#{@name}" } == '1'
-        end
+        # def paused?
+        #   redis { |it| it.get "#{PREFIX}:pause:#{@name}" } == '1'
+        # end
 
         def block
           redis { |it| it.set "#{PREFIX}:block:#{@name}", '1' }

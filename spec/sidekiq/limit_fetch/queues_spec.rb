@@ -84,13 +84,13 @@ RSpec.describe Sidekiq::LimitFetch::Queues do
     expect(Sidekiq::Queue['queue2'].probed).to eq 0
   end
 
-  it 'should release when no queues was acquired' do
-    queues.each { |name| Sidekiq::Queue[name].pause }
-    in_thread do
-      subject.acquire
-      expect { subject.release_except nil }.not_to raise_exception
-    end
-  end
+  # it 'should release when no queues was acquired' do
+  #   queues.each { |name| Sidekiq::Queue[name].pause }
+  #   in_thread do
+  #     subject.acquire
+  #     expect { subject.release_except nil }.not_to raise_exception
+  #   end
+  # end
 
   context 'blocking' do
     let(:blocking) { %w[queue1] }

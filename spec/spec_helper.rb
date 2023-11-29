@@ -27,7 +27,7 @@ RSpec.configure do |config|
           pipeline.del "limit_fetch:process_limit:#{queue}"
           pipeline.del "limit_fetch:busy:#{queue}"
           pipeline.del "limit_fetch:probed:#{queue}"
-          pipeline.del "limit_fetch:pause:#{queue}"
+          # pipeline.del "limit_fetch:pause:#{queue}"
           pipeline.del "limit_fetch:block:#{queue}"
         end
       end
